@@ -85,18 +85,3 @@ function showFiles() {
     }
 }
 
-let form = document.getElementById('form');
-
-form.addEventListener("submit", function(e){
-    e.preventDefault();
-    
-    const dataTransfer = new DataTransfer();
-    files.forEach(file => {
-        dataTransfer.items.add(file);
-    });
-    
-    input.files = dataTransfer.files;
-    
-    // Envía el formulario
-    this.submit(); // Se usa 'this' para hacer referencia al formulario actual
-});
