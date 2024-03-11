@@ -2,26 +2,6 @@ let map;
 let marker
 let data;
 
-// async function fetchData() {
-//     // Hacer una solicitud fetch para obtener el JSON
-//     fetch('/styleMaps.json')
-//         .then(response => {
-//             if (!response.ok) {
-//                 throw new Error('Network response was not ok');
-//             }
-            
-//         })
-//         .then(jsonData => {
-//             // Guardar los datos JSON en la variable 'data'
-//             data = jsonData;
-//         })
-//         .catch(error => {
-//             console.error('Hubo un problema con la solicitud fetch:', error);
-//         });
-//         return data
-// }
-
-
 async function initMap() {
     let jsondata;
     try{
@@ -46,7 +26,7 @@ async function initMap() {
         position: myLatLng,
         map,
         title: "Hello World!",
-        icon: "icono/mouse.png"
+        icon: "icono/mouse1.png"
 
     });
     const contentString = "Hola Juanma "
@@ -80,10 +60,10 @@ function buscar() {
             document.getElementById("longitude").value = longitude;
             console.log(latitude)
             console.log(longitude)
-            //para el marcador
+            
             let newLatLng = new google.maps.LatLng(latitude, longitude);
             marker.setPosition(newLatLng);
-            // para el mapa
+
             let center = new google.maps.LatLng(latitude, longitude);
             map.setCenter(center);
             map.setZoom(16);
