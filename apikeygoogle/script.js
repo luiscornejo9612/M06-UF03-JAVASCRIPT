@@ -1,6 +1,7 @@
 let map;
 let marker
 let data;
+let boton = document.getElementById('buscar');
 
 async function initMap() {
     let jsondata;
@@ -44,13 +45,15 @@ window.initMap = initMap;
 
 
 /*****************************************************************************************************/
-
+boton.addEventListener('click', function(){
+    buscar()
+})
 
 
 function buscar() {
 
     let geocoder = new google.maps.Geocoder();
-    let address = "Carrer de la Selva de Mar 211 08020 Barcelona";
+    let address = document.getElementById("adreca").value
     geocoder.geocode({ 'address': address }, function (results, status) {
 
         if (status == google.maps.GeocoderStatus.OK) {
@@ -66,7 +69,7 @@ function buscar() {
 
             let center = new google.maps.LatLng(latitude, longitude);
             map.setCenter(center);
-            map.setZoom(16);
+            map.setZoom(14);
         }
         else {
             alert("l’adreça no s’ha trobat.")
